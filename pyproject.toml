@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flatball"
+version = "0.1.0"
+description = "Flat-to-sphere transfer experiment for normal-displacement anomalies"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "numpy>=1.23",
+  "scipy>=1.9",
+  "scikit-learn>=1.2",
+]
+
+[project.optional-dependencies]
+deep = ["torch>=2.0"]
+dev = ["pytest>=7"]
+xgb = ["xgboost>=1.7"]
+
+[project.scripts]
+flatball = "flatball.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

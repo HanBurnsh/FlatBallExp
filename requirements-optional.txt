@@ -1,0 +1,4 @@
+# Optional model / backend dependencies
+torch>=2.0
+xgboost>=1.7
+pytest>=7

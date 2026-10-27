@@ -1,0 +1,65 @@
+{
+  "geometry": {
+    "n_points": 10240,
+    "fps_pool_factor": 1.5,
+    "plane_area_factor": 4.0
+  },
+  "features": {
+    "neighborhood_ratio": 0.15,
+    "min_neighbors": 8,
+    "neighbor_slack": 1.8,
+    "pca_ridge": 1e-08,
+    "chunk_size": 2048
+  },
+  "anomaly": {
+    "mu0": 0.1,
+    "r_ratio": 0.1,
+    "radius_mode": "relative",
+    "sigma_ratio": 0.2,
+    "target_fraction": [0.08, 0.12],
+    "min_regions": 1,
+    "max_regions": 96,
+    "center_separation_factor": 2.0,
+    "placement_attempts": 16384,
+    "allow_partial": false
+  },
+  "splits": {
+    "train_normal": 500,
+    "train_anomaly": 500,
+    "val_normal": 100,
+    "val_anomaly": 100,
+    "test_normal": 100,
+    "test_anomaly": 100
+  },
+  "model": {
+    "gbdt_backend": "auto",
+    "gbdt_max_iter": 200,
+    "gbdt_learning_rate": 0.1,
+    "gbdt_max_leaf_nodes": 31,
+    "pointnet_epochs": 40,
+    "pointnet_batch_samples": 8,
+    "pointnet_lr": 0.001,
+    "pointnet_patience": 6,
+    "device": "cpu"
+  },
+  "evaluation": {
+    "confidence": 0.95,
+    "equivalence_margin": 0.05,
+    "flat_tolerance": 0.02,
+    "alpha": 0.05,
+    "threshold": "youden",
+    "fixed_threshold": 0.5
+  },
+  "experiment": {
+    "seeds": [0, 1, 2, 3, 4],
+    "radii": [50.0, 20.0, 10.0, 5.0],
+    "reference_radius": 50.0,
+    "amplitude_power": 1.0,
+    "max_locality_ratio": 0.2,
+    "experiments": ["exp1", "exp2", "exp3"],
+    "output_dir": "results",
+    "cache_dir": "cache",
+    "cache": true,
+    "log_level": "INFO"
+  }
+}
